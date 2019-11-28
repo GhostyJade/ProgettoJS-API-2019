@@ -19,7 +19,7 @@ Elenco partecipanti
 
 * PROJECT_MANAGER = 
 * DOCUMENTAZIONE = 
-* CODING JS
+* CODING JS = GhostyJade
 * CODING UI
 
 ## Regolamento
