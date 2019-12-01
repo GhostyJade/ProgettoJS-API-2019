@@ -10,29 +10,28 @@
     </head>
     <body>
         <header>
-            <a href="#" class="logo"><span class="icon-user"></span></a>
-            <a href="#" class="button">Gioco</a>
+            <a href="#" class="logo"><span class="icon-user" id = "user"></span></a>
+            <a href="#" class="button" id = "game">Play</a>
         </header>
         <center><h1>Another useless trivia game!</h1></center><br>
         <center>
-            <div class="card">
-                <img src=" " class="section media"/>
+            <div class="card" id = "imgcard">
+                <img src=" " class="section media" id = "image"/>
             </div>
         </center><br>
-            <center><p>Qualcosa <input type = "text" name = "qualcosa" placeholder="Inserisci qualcosa"></p></center><br>
-            <center><textarea rows="4" cols="50"></textarea></center><br>
+            <center><strong><p id = "text"> Paragraph with something inside for the trivia game</p></strong></center><br>
             <center>
-            <form action = "app.js"method = "post">
-            <p>Fai la tua scelta:</p>
-            <input type = "radio" name = "opzione" value = "scelta1">Scelta 1 <br>
-            <input type = "radio" name = "opzione" value = "scelta2">Scelta 2 <br>
-            <input type = "radio" name = "opzione" value = "scelta3">Scelta 3 <br>
-            <input type = "radio" name = "opzione" value = "scelta4">Scelta 4 <br>
-            <input type = "submit" value = "Conferma la risposta">
+            <form action = "app.js"method = "post" id = "options">
+            <p>Make your choice:</p>
+            <input type = "radio" name = "opzione" value = "scelta1" id = "option1">Option 1<br>
+            <input type = "radio" name = "opzione" value = "scelta2" id = "option2">Option 2<br>
+            <input type = "radio" name = "opzione" value = "scelta3" id = "option3">Option 3<br>
+            <input type = "radio" name = "opzione" value = "scelta4" id = "option4">Option 4<br>
+            <input type = "submit" value = "Confirm" id = "conf">
             </form>
             </center>
             <footer>
-                <p>Footer text</p>
+                <center><p id = "foot">Footer text</p></center>
             </footer>
         </body>
 </html>
