@@ -19,7 +19,7 @@ Elenco partecipanti
 
 * PROJECT_MANAGER = 
 * DOCUMENTAZIONE = 
-* CODING JS = [GhostyJade]("http://")
+* CODING JS = (GhostyJade)["https://www.github.com/GhostyJade"]
 * CODING UI = 
 
 ## Regolamento
