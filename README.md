@@ -19,8 +19,8 @@ Elenco partecipanti
 
 * PROJECT_MANAGER = 
 * DOCUMENTAZIONE = 
-* CODING JS = GhostyJade
-* CODING UI
+* CODING JS = [GhostyJade]("http://")
+* CODING UI = 
 
 ## Regolamento
 * Ogni gruppo consegnerà il link ad un repository GIT che sarà un fork di questo progetto.
