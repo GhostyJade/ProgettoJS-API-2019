@@ -12,12 +12,12 @@
 
 <body background="">
     <header>
-        <a href="#" class="logo"><span class="icon-user" id="user"></span></a>
-        <a href="#" class="button" id="game">Play</a>
+        <a href="#" class="logo"><span class="icon-user inverse" id="user"></span></a>
+        <a href="#" class="button" id="game"><strong>Play</strong></a>
     </header>
     <div class="container">
         <div class="row">
-          <div class="col-sm-4"></div>  <div class="col-sm-8"> <h1 style =  "color:chocolate;" >Welcome to another useless trivia game :)</h1></div>
+          <div class="col-sm-4"></div>  <div class="col-sm-8"> <h1>Welcome to another useless trivia game :)</h1></div>
         </div>
     </div>
     <div class="container">
@@ -30,19 +30,23 @@
           </div>
         </div>
     </div>
-    <p id="text" style =  "color:chocolate;"> <strong>Paragraph with something inside for the trivia game</strong></p>
+    <pre><p id="text"> <strong>Paragraph with something inside for the trivia game</strong></p></pre>
 
-    <form method="post" id="options" style = "background-color:black; color:chocolate;">
-        <p>Make your choice:</p>
-        <input type="radio" name="opzione" id="option1">Option 1<br>
-        <input type="radio" name="opzione" id="option2">Option 2<br>
-        <input type="radio" name="opzione" id="option3">Option 3<br>
-        <input type="radio" name="opzione" id="option4">Option 4<br>
-        <input type="submit" value="Confirm" id="conf" style = "background-color :darkmagenta ;color:chocolate;" >
+    <form method="post" id="options">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-5"></div>  <div class="col-sm-7">
+                <p><strong>Make your choice:</strong></p>
+                <input type="radio" name="opzione" id="option1"><strong>Option 1</strong><br>
+                <input type="radio" name="opzione" id="option2"><strong>Option 2</strong><br>
+                <input type="radio" name="opzione" id="option3"><strong>Option 3</strong><br>
+                <input type="radio" name="opzione" id="option4"><strong>Option 4</strong><br>
+                <input type="submit" value="Confirm" id="conf">
+              </div>
+            </div>
+        </div>
     </form>
-    <footer style = "background-color :darkmagenta ;color:chocolate;">
-        <p>Footer text</p>
-    </footer>
+        <span class= "toast"><p><strong>Progetto svolto da Hussain Shakir,Scarpari Mattia,Oldofredi Andrea</strong></p></span>
     <script src="app.js"></script>
 </body>
 
