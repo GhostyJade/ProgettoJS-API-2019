@@ -1,4 +1,13 @@
 :root {
     --back-color: #000000;
-    --fore-color: #008000;
+    --fore-color: #ffff00;
+    --header-fore-color:#ffff00;
+    --header-back-color:#000000;
+    --secondary-back-color:#000000;
+    --form-fore-color:#ffff00;
+    --form-back-color:#000000;
+    --toast-fore-color:#ffff00;
+    --toast-back-color:#4f7272;
+    --pre-color:#ffff00;
+
 }
