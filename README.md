@@ -20,7 +20,7 @@ Elenco partecipanti
 * PROJECT_MANAGER = [Hussain](https://github.com/Shakirhs)
 * DOCUMENTAZIONE = [Hussain](https://github.com/Shakirhs)
 * CODING JS = [GhostyJade](https://www.github.com/GhostyJade)
-* CODING UI = [Scarpari](https://github.com/Shakirhs)
+* CODING UI = [Scarpari](https://github.com/scar3054)
 
 ## Regolamento
 * Ogni gruppo consegnerà il link ad un repository GIT che sarà un fork di questo progetto.
