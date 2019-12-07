@@ -5,9 +5,13 @@ const unsplashApiKey = "ba4e6a7d1a48e8f0c7501a7c3417fbc8ae34540b13c806187f37307b
 
 const image = document.getElementById("image")
 const text = document.getElementById("text")
-const btnNextQuestion = document.getElementById("nextQuestion")
-const btnCheckQuestion = document.getElementById("conf")
+let btnNextQuestion
+let btnCheckQuestion
 const options = document.getElementById("options")
+const result = document.getElementById("result")
+
+let score = 0
+let totalQuestions = 25
 
 /**
  * Shuffles array in place. (took from stackoverflow.)
@@ -25,7 +29,7 @@ function shuffle(a) {
 }
 
 const getQuestions = () => {
-    fetch("https://opentdb.com/api.php?amount=10")
+    fetch("https://opentdb.com/api.php?amount=25")
         .then(response => response.json())
         .then(content => {
             data = content.results
@@ -48,7 +52,13 @@ const createRadioElement = (data, index) => {
     options.appendChild(emptiness)
 }
 
+const recreateButtons = () => {
+    options.appendChild(btnNextQuestion)
+    options.appendChild(btnCheckQuestion)
+}
+
 const dispatchQuestion = () => {
+    options.innerHTML = ""
     const q = data.pop()
     const txt = q.question
     var answers = q.incorrect_answers
@@ -62,14 +72,28 @@ const dispatchQuestion = () => {
     for (var i = 0; i < answers.length; i++) {
         createRadioElement(answers[i], i)
     }
+    recreateButtons()
 }
 
 const getImage = async (name) => {
     fetch("https://api.unsplash.com/search/photos/?client_id=" + unsplashApiKey + "&query=" + name + "&orientation=landscape").then(content => content.json()).then(e => image.setAttribute("src", e.results[0].urls.regular))
 }
 
-const createAlert = () => {
-
+const createAlert = (status) => {
+    result.innerHTML = ""
+    const alert = document.createElement("p")
+    const mk = document.createElement("mark")
+    mk.setAttribute("class", "tag")
+    if (status) {
+        mk.classList.add("tertiary")
+        mk.innerText = "Correct"
+    }
+    else {
+        mk.classList.add("secondary")
+        mk.innerText = "Wrong"
+    }
+    alert.appendChild(mk)
+    result.appendChild(alert)
 }
 
 const checkAnswer = () => {
@@ -77,14 +101,31 @@ const checkAnswer = () => {
     if (radios !== null)
         for (let i = 0; i < radios.length; i++)
             if (radios[i].checked)
-                if (radios[i].value === theCorrectAnswer)
+                if (radios[i].value === theCorrectAnswer) {
+                    score++
+                    createAlert(true)
                     console.log("CORRECT")
-                else
+                }
+                else {
+                    createAlert(false)
                     console.log("WRONG")
+                }
 
 }
 
-getQuestions()
+const initButtons = () => {
+    btnNextQuestion = document.createElement("input")
+    btnNextQuestion.setAttribute("type", "button")
+    btnNextQuestion.setAttribute("value", "Next")
+    btnNextQuestion.setAttribute("id", "thankYouNext")
+    btnNextQuestion.onclick = dispatchQuestion
+    btnCheckQuestion = document.createElement("input")
+    btnCheckQuestion.setAttribute("type", "button")
+    btnCheckQuestion.setAttribute("value", "Confirm")
+    btnCheckQuestion.setAttribute("class", "primary")
+    btnCheckQuestion.setAttribute("id", "checkQuestion")
+    btnCheckQuestion.onclick = checkAnswer
+}
 
-btnNextQuestion.onclick = dispatchQuestion
-btnCheckQuestion.onclick = checkAnswer
+getQuestions()
+initButtons()
