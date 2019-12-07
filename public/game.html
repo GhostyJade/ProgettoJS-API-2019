@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
   <!--
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
     <link rel="stylesheet" href="main.css">
   -->
-  <title>Another useless trivia game</title>
+  <title>Play! - Another useless trivia game</title>
 </head>
 
 <body>
@@ -17,41 +17,26 @@
     <a href="#" class="logo"><span class="icon-user inverse" id="user"></span></a>
     <a href="#" class="button" id="game"><strong>Play</strong></a>
   </header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-      </div>
-      <div class="col-fluid">
-        <h1>Welcome to another useless trivia game :)</h1>
-      </div>
-      <div class="col-sm-2">
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-5"></div>
-      <div class="col-sm-7">
-        <div class="card" id="imgcard">
-          <img src="" class="section media" id="image" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <pre><p id="text"> <strong>Paragraph with something inside for the trivia game</strong></p></pre>
 
-  <form method="post" id="options">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-7">
-          <p><strong>Make your choice:</strong></p>
-          <input type="button" value="Skip" id="nextQuestion">
-          <input type="button" value="Confirm" id="conf">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="" id="image" />
+      </div>
+      <div class="col-md-6">
+        <p id="text"> <strong>Paragraph with something inside for the trivia game</strong></p>
+        <p><strong>Make your choice:</strong></p>
+        <form id="options">
+        </form>
+        <div class="row">
+          <div class="col-lg" id="result">
+
+          </div>
         </div>
       </div>
     </div>
-  </form>
+
+  </div>
   <!--
       <span class= "toast"><p><strong>Progetto svolto da Hussain Shakir,Scarpari Mattia, Jade</strong></p></span>
     -->
