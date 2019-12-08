@@ -11,6 +11,7 @@ const options = document.getElementById("options")
 const result = document.getElementById("result")
 const masterContainer = document.getElementById("masterOfPuppets")
 const subContainer = document.getElementById("subContainer")
+const onscreenScore = document.getElementById("scoreh")
 
 let score = 0
 let currentQuestion = 0
@@ -64,6 +65,7 @@ const recreateButtons = () => {
 
 const dispatchQuestion = () => {
     if (data.length > 0) {
+        updateOnScreenScore()
         submitted = false
         result.innerHTML = ""
         options.innerHTML = ""
@@ -87,7 +89,6 @@ const dispatchQuestion = () => {
         subContainer.remove()
         showScores()
     }
-
 }
 
 const getImage = async (name) => {
@@ -145,12 +146,14 @@ const initButtons = () => {
     btnCheckQuestion.onclick = checkAnswer
 }
 
-const updateOnScreenScore = () => { } //TODO
+const updateOnScreenScore = () => {
+    onscreenScore.innerText = "Correct answers: " + score + " / " + totalQuestions + " - Remaining questions: " + data.length
+}
 
-const elementFactory = (type, data, attribs) => {
+const elementFactory = (type, data, classAttribs) => {
     const el = document.createElement(type)
-    if (!attribs.length == 0) {
-        attribs.forEach(e => el.setAttribute(e.name, e.value))
+    if (!classAttribs.length == 0) {
+        classAttribs.forEach(e => el.setAttribute(e.name, e.value))
     }
     el.innerText = data
     return el
