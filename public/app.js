@@ -74,7 +74,7 @@ const dispatchQuestion = () => {
         const txt = q.question
         var answers = q.incorrect_answers
         theCorrectAnswer = q.correct_answer
-        console.log(theCorrectAnswer)
+        // console.log(theCorrectAnswer)
         answers.push(theCorrectAnswer)
         shuffle(answers)
         getImage(q.category)
