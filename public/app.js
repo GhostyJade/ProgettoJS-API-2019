@@ -9,6 +9,8 @@ let btnNextQuestion
 let btnCheckQuestion
 const options = document.getElementById("options")
 const result = document.getElementById("result")
+const masterContainer = document.getElementById("masterOfPuppets")
+const subContainer = document.getElementById("subContainer")
 
 let score = 0
 let currentQuestion = 0
@@ -31,7 +33,7 @@ function shuffle(a) {
 }
 
 const getQuestions = () => {
-    fetch("https://opentdb.com/api.php?amount=25")
+    fetch("https://opentdb.com/api.php?amount=" + totalQuestions)
         .then(response => response.json())
         .then(content => {
             data = content.results
@@ -62,7 +64,8 @@ const recreateButtons = () => {
 
 const dispatchQuestion = () => {
     if (data.length > 0) {
-        result.innerHTML=""
+        submitted = false
+        result.innerHTML = ""
         options.innerHTML = ""
         const q = data.pop()
 
@@ -80,8 +83,9 @@ const dispatchQuestion = () => {
         }
         recreateButtons()
         currentQuestion++
-    }else{
-
+    } else {
+        subContainer.remove()
+        showScores()
     }
 
 }
@@ -118,16 +122,13 @@ const checkAnswer = () => {
                 if (radios[i].value === theCorrectAnswer) {
                     score++
                     createAlert(true)
-                    console.log("CORRECT")
                 }
                 else {
                     createAlert(false)
-                    console.log("WRONG")
                 }
             }
         }
     }
-
 }
 
 const initButtons = () => {
@@ -142,6 +143,21 @@ const initButtons = () => {
     btnCheckQuestion.setAttribute("class", "primary")
     btnCheckQuestion.setAttribute("id", "checkQuestion")
     btnCheckQuestion.onclick = checkAnswer
+}
+
+const updateOnScreenScore = () => { } //TODO
+
+const elementFactory = (type, data, attribs) => {
+    const el = document.createElement(type)
+    if (!attribs.length == 0) {
+        attribs.forEach(e => el.setAttribute(e.name, e.value))
+    }
+    el.innerText = data
+    return el
+}
+
+const showScores = () => {
+    masterContainer.appendChild(elementFactory("p", "Your score is " + score + "/" + totalQuestions, [[name = "class", value = "results"]]))
 }
 
 getQuestions()
