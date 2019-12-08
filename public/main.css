@@ -9,5 +9,16 @@
     --toast-fore-color:#ffff00;
     --toast-back-color:#4f7272;
     --pre-color:#ffff00;
+    --footer-back-color:black;
+    --footer-fore-color:yellow;
 
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+p{
+    text-align: center;
 }
