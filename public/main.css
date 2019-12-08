@@ -1,28 +1,32 @@
 :root {
     --back-color: #000000;
     --fore-color: #ffffff;
-    --header-fore-color:#ffffff;
-    --header-back-color:#000000;
-    --secondary-back-color:#000000;
-    --form-fore-color:#ffffff;
-    --form-back-color:#000000;
-    --pre-color:#ffffff;
-    --footer-back-color:#000000;
-    --footer-fore-color:#ffffff;
+    --header-fore-color: #ffffff;
+    --header-back-color: #000000;
+    --secondary-back-color: #000000;
+    --form-fore-color: #ffffff;
+    --form-back-color: #000000;
+    --pre-color: #ffffff;
+    --footer-back-color: #000000;
+    --footer-fore-color: #ffffff;
+    --footer-link-color: #ffffff;
+    --a-link-color: #ffffff;
+    --a-visited-color: #ffffff
 }
 
 .colorizer {
-    --form-back-color:#323232;
-    --form-border-color:#323232;
-    background-color: #323232;
+    --form-back-color: #323232;
+    --form-border-color: #323232;
+    background-color: #323232
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100%
 }
-p{
-    text-align: center;
+
+p {
+    text-align:center
 }
