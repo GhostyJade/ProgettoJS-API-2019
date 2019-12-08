@@ -12,6 +12,7 @@ const result = document.getElementById("result")
 
 let score = 0
 let totalQuestions = 25
+let submitted = false
 
 /**
  * Shuffles array in place. (took from stackoverflow.)
@@ -45,7 +46,7 @@ const createRadioElement = (data, index) => {
     const lbl = document.createElement("label")
     lbl.setAttribute("for", "option" + index)
     lbl.setAttribute("id", "opt" + index)
-    lbl.innerText = data
+    lbl.innerHTML = data
     options.appendChild(el)
     options.appendChild(lbl)
     const emptiness = document.createElement("br")
@@ -53,6 +54,7 @@ const createRadioElement = (data, index) => {
 }
 
 const recreateButtons = () => {
+    submitted = false
     options.appendChild(btnNextQuestion)
     options.appendChild(btnCheckQuestion)
 }
@@ -60,6 +62,7 @@ const recreateButtons = () => {
 const dispatchQuestion = () => {
     options.innerHTML = ""
     const q = data.pop()
+
     const txt = q.question
     var answers = q.incorrect_answers
     theCorrectAnswer = q.correct_answer
@@ -76,7 +79,7 @@ const dispatchQuestion = () => {
 }
 
 const getImage = async (name) => {
-    fetch("https://api.unsplash.com/search/photos/?client_id=" + unsplashApiKey + "&query=" + name + "&orientation=landscape").then(content => content.json()).then(e => image.setAttribute("src", e.results[0].urls.regular))
+    fetch("https://api.unsplash.com/search/photos/?client_id=" + unsplashApiKey + "&query=" + name + "&orientation=landscape").then(content => content.json()).then(e => image.setAttribute("src", e.results[Math.round(Math.random() * 10 - 1)].urls.regular))
 }
 
 const createAlert = (status) => {
@@ -98,9 +101,10 @@ const createAlert = (status) => {
 
 const checkAnswer = () => {
     const radios = document.getElementsByName("answer")
-    if (radios !== null)
-        for (let i = 0; i < radios.length; i++)
-            if (radios[i].checked)
+    if (!submitted && radios !== null) {
+        submitted = true
+        for (let i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
                 if (radios[i].value === theCorrectAnswer) {
                     score++
                     createAlert(true)
@@ -110,6 +114,9 @@ const checkAnswer = () => {
                     createAlert(false)
                     console.log("WRONG")
                 }
+            }
+        }
+    }
 
 }
 
