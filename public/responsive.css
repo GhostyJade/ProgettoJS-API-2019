@@ -7,7 +7,7 @@ body{
     background-size: cover;
 }
 h1,p{
-  color: burlywood; 
+  color: greenyellow; 
   text-align: center; 
 }
 footer{
@@ -15,5 +15,11 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(99, 99, 211);
+    background-color: black;
+}
+
+a:link,a:visited{
+  text-decoration: underline;
+  color: greenyellow;
+  background-color: transparent;
 }
