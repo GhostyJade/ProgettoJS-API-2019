@@ -11,6 +11,7 @@ const options = document.getElementById("options")
 const result = document.getElementById("result")
 
 let score = 0
+let currentQuestion = 0
 let totalQuestions = 25
 let submitted = false
 
@@ -60,26 +61,35 @@ const recreateButtons = () => {
 }
 
 const dispatchQuestion = () => {
-    options.innerHTML = ""
-    const q = data.pop()
+    if (data.length > 0) {
+        result.innerHTML=""
+        options.innerHTML = ""
+        const q = data.pop()
 
-    const txt = q.question
-    var answers = q.incorrect_answers
-    theCorrectAnswer = q.correct_answer
-    console.log(theCorrectAnswer)
-    answers.push(theCorrectAnswer)
-    shuffle(answers)
-    getImage(q.category)
+        const txt = q.question
+        var answers = q.incorrect_answers
+        theCorrectAnswer = q.correct_answer
+        console.log(theCorrectAnswer)
+        answers.push(theCorrectAnswer)
+        shuffle(answers)
+        getImage(q.category)
 
-    text.innerHTML = txt
-    for (var i = 0; i < answers.length; i++) {
-        createRadioElement(answers[i], i)
+        text.innerHTML = txt
+        for (var i = 0; i < answers.length; i++) {
+            createRadioElement(answers[i], i)
+        }
+        recreateButtons()
+        currentQuestion++
+    }else{
+
     }
-    recreateButtons()
+
 }
 
 const getImage = async (name) => {
-    fetch("https://api.unsplash.com/search/photos/?client_id=" + unsplashApiKey + "&query=" + name + "&orientation=landscape").then(content => content.json()).then(e => image.setAttribute("src", e.results[Math.round(Math.random() * 10 - 1)].urls.regular))
+    fetch("https://api.unsplash.com/search/photos/?client_id=" + unsplashApiKey + "&query=" + name + "&orientation=landscape")
+        .then(content => content.json())
+        .then(e => image.setAttribute("src", e.results[Math.round(Math.random() * 10 - 1)].urls.regular))
 }
 
 const createAlert = (status) => {
