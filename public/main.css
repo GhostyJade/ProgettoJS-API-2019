@@ -11,22 +11,26 @@
     --footer-fore-color: #ffffff;
     --footer-link-color: #ffffff;
     --a-link-color: #ffffff;
-    --a-visited-color: #ffffff
+    --a-visited-color: #ffffff;
+}
+
+.results {
+    font-size: larger;
 }
 
 .colorizer {
     --form-back-color: #323232;
     --form-border-color: #323232;
-    background-color: #323232
+    background-color: #323232;
 }
 
 footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%
+    width: 100%;
 }
 
 p {
-    text-align:center
+    text-align: center;
 }
