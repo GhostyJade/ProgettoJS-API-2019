@@ -13,7 +13,10 @@ Ogni gruppo definisce un titolo progetto (< 100 caratteri) e una descrizione( <5
 
 
 ## Partecipanti
-Elenco partecipanti
+Elenco partecipanti:
+- GhostyJade
+- Shakir Hussain
+- Mattia Scarpari
 
 ## Ruoli
 
