@@ -58,7 +58,6 @@ const createRadioElement = (data, index) => {
 }
 
 const recreateButtons = () => {
-    submitted = false
     options.appendChild(btnNextQuestion)
     options.appendChild(btnCheckQuestion)
 }
@@ -117,7 +116,7 @@ const createAlert = (status) => {
 const checkAnswer = () => {
     const radios = document.getElementsByName("answer")
     if (!submitted && radios !== null) {
-        submitted = true
+        radios.forEach(e => { if (e.checked) submitted = true })
         for (let i = 0; i < radios.length; i++) {
             if (radios[i].checked) {
                 if (radios[i].value === theCorrectAnswer) {
@@ -127,6 +126,7 @@ const checkAnswer = () => {
                 else {
                     createAlert(false)
                 }
+
             }
         }
     }
